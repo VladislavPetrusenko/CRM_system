@@ -1,0 +1,11 @@
+asgiref==3.12.1
+astroid==4.0.4
+dill==0.4.1
+Django==6.1
+isort==8.0.1
+mccabe==0.7.0
+platformdirs==4.11.3
+psycopg2-binary==2.9.12
+pylint==4.0.7
+sqlparse==0.6.0
+tomlkit==0.15.1
