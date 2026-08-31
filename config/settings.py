@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-dlckdal91da98hnmwuw5*rrxpn*a7lyr5x*$w0!-q)x*tke0_q'
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'crm.apps.CrmConfig',
+    'services.apps.ServicesConfig',
+    'compaigns.apps.CompaignsConfig',
+    'leads.apps.LeadsConfig',
+    'clients.apps.ClientsConfig',
+    'contracts.apps.ContractsConfig',
+    'analytics.apps.AnalyticsConfig',
+    'accounts.apps.AccountsConfig'
 ]
 
 MIDDLEWARE = [
@@ -77,11 +87,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'crm_db',
-        'USER': 'crm_user',
-        'PASSWORD': '25082001',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
+        'NAME': os.environ.get("POSTGRES_NAME", ""),
+        'USER': os.environ.get("POSTGRES_USER", "crm_user"),
+        'PASSWORD': os.environ.get("POSTGRES_PASSWORD", ""),
+        'HOST': os.environ.get("POSTGRES_HOST", ""),
+        'PORT': os.environ.get("POSTGRES_PORT", "")
     }
 }
 
@@ -131,3 +141,6 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"

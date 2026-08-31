@@ -9,3 +9,4 @@ psycopg2-binary==2.9.12
 pylint==4.0.7
 sqlparse==0.6.0
 tomlkit==0.15.1
+python-dotenv==1.2.3
