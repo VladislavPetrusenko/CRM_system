@@ -1,0 +1,50 @@
+[
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Operator",
+    "permissions": [
+      33,
+      34,
+      35,
+      36
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "Marketolog",
+    "permissions": [
+      29,
+      30,
+      31,
+      32,
+      25,
+      26,
+      27,
+      28
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 4,
+  "fields": {
+    "name": "Manager",
+    "permissions": [
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      36
+    ]
+  }
+}
+]
