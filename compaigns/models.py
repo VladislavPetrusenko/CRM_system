@@ -1,5 +1,6 @@
 from django.db import models
 from services.models import Service
+from django.urls import reverse
 
 
 class Compaign(models.Model):
@@ -17,12 +18,14 @@ class Compaign(models.Model):
     channel = models.CharField(max_length=50, choices=CHANNELS, verbose_name="Канал продвижения")
     budget = models.DecimalField(max_digits=12, decimal_places=2, verbose_name="Бюджет на рекламу")
 
-
     def __str__(self):
         return self.name
-
 
     class Meta:
         verbose_name = "Рекламная кампания"
         verbose_name_plural = "Рекламные кампании"
-        
+
+
+    def get_absolute_url(self):
+        """URL детальной страницы кампании."""
+        return reverse("compaign_detail", kwargs={"pk": self.pk})

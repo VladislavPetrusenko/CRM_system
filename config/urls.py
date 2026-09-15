@@ -12,7 +12,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", HomeView.as_view(), name="home"),
     path("accounts/", include("accounts.urls")),
-    path("services/", include("services.urls"))
+    path("services/", include("services.urls")),
+    path('compaigns/', include('compaigns.urls'))
 ]
 
 if settings.DEBUG:
