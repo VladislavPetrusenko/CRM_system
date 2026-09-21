@@ -13,7 +13,8 @@ urlpatterns = [
     path("", HomeView.as_view(), name="home"),
     path("accounts/", include("accounts.urls")),
     path("services/", include("services.urls")),
-    path('compaigns/', include('compaigns.urls'))
+    path('compaigns/', include('compaigns.urls')),
+    path('leads/', include('leads.urls'))
 ]
 
 if settings.DEBUG:

@@ -1,5 +1,6 @@
 from django.db import models
 from compaigns.models import Compaign
+from django.urls import reverse
 
 
 class Lead(models.Model):
@@ -17,4 +18,8 @@ class Lead(models.Model):
     class Meta:
         verbose_name = "Потенциальный клиент"
         verbose_name_plural = "Потенциальные клиенты"
-        
+
+
+    def get_absolute_url(self):
+        """URL детальной страницы потенциального клиента."""
+        return reverse("lead_detail", kwargs={"pk": self.pk})
