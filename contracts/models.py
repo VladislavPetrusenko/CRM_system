@@ -1,5 +1,6 @@
 from django.db import models
 from services.models import Service
+from django.urls import reverse
 
 
 class Contract(models.Model):
@@ -19,4 +20,8 @@ class Contract(models.Model):
     class Meta:
         verbose_name = "Контракт"
         verbose_name_plural = "Контракты"
-        
+
+
+    def get_absolute_url(self):
+        """URL детальной страницы контракта."""
+        return reverse('contract_detail', kwargs={'pk': self.pk})

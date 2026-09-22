@@ -1,0 +1,28 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<h2 class="fw-bold">Детальная информация о контракте</h2>
+<div class="row bg-white px-3 py-3 mx-2 my-5 rounded pb-5 shadow-lg">
+    <div class="col"></div>
+    <div class="col">
+        <div class="card border-dark shadow" style="background: #eee">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">{{ object.name }}</h5>
+                {{ form.as_p }}
+                {% if object.file %}
+                <a href="{{ object.file.url }}" class="btn btn-secondary">Скачать документ</a>
+                {% endif %}
+                <div class="d-flex justify-content-center gap-2 fw-bold mt-3">
+                    {% if perms.contracts.change_contract %}
+                    <a href="{% url 'contract_update' pk=object.pk %}" class="btn btn-primary">Редактировать</a>
+                    {% endif %}
+                    {% if perms.contracts.delete_contract %}
+                    <a href="{% url 'contract_delete' pk=object.pk %}" class="btn btn-danger">Удалить</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+{% endblock %}
