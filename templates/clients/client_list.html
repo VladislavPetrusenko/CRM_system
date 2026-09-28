@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<h2 class="fw-bold">Активные клиенты</h2>
+<div class="row bg-white px-3 py-3 mx-2 my-5 rounded pb-5 shadow-lg">
+    <div class="col">
+        <ul class="list-group">
+            {% for client in client_list %}
+            <li class="list-group-item list-group-item-light d-flex justify-content-between">
+                <a href="{% url 'client_detail' pk=client.pk %}"
+                   class="text-decoration-none link-dark">{{ client.lead.full_name }}</a>
+                {% if perms.clients.delete_activeclient %}
+                <a href="{% url 'client_delete' pk=client.pk %}" class="btn btn-danger">Удалить</a>
+                {% endif %}
+            </li>
+            {% empty %}
+            <li class="list-group-item list-group-item-light">Активных клиентов пока нет</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
