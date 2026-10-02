@@ -1,3 +1,5 @@
+"""Модели БД"""
+
 from django.db import models
 from django.urls import reverse
 
@@ -10,10 +12,12 @@ class Service(models.Model):
 
 
     def __str__(self):
+        """Строковое представления"""
         return self.name
 
 
     class Meta:
+        """Настройки модели"""
         verbose_name = "Услуга"
         verbose_name_plural = "Услуги"
 
@@ -21,4 +25,3 @@ class Service(models.Model):
     def get_absolute_url(self):
         """URL детальной страницы услуги."""
         return reverse("service_detail", kwargs={"pk": self.pk})
-    

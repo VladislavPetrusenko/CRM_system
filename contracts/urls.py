@@ -1,3 +1,5 @@
+"""Маршруты для контрактов"""
+
 from django.urls import path
 from .views import (
     ContractCreateView,

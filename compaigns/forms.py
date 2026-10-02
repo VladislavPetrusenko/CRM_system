@@ -1,3 +1,5 @@
+"""Форма приложения компании"""
+
 from django import forms
 from compaigns.models import Compaign
 
@@ -7,6 +9,7 @@ class CompaignForm(forms.ModelForm):
 
 
     class Meta:
+        """Настройки формы"""
         model = Compaign
         fields = ['name', 'service', 'channel', 'budget']
         widgets = {
@@ -15,4 +18,3 @@ class CompaignForm(forms.ModelForm):
             'channel': forms.Select(attrs={'class': 'form-control'}),
             'budget': forms.NumberInput(attrs={'class': 'form-control'})
         }
-        

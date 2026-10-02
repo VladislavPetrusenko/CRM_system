@@ -1,9 +1,12 @@
+"""Модели БД"""
+
 from django.db import models
-from services.models import Service
 from django.urls import reverse
+from services.models import Service
 
 
 class Compaign(models.Model):
+    """Поля БД"""
     CHANNELS = (
         ("social", "Социальные сети"),
         ("context", "Контекстная реклама"),
@@ -19,9 +22,11 @@ class Compaign(models.Model):
     budget = models.DecimalField(max_digits=12, decimal_places=2, verbose_name="Бюджет на рекламу")
 
     def __str__(self):
+        """Строковое представления"""
         return self.name
 
     class Meta:
+        """Настройки модели"""
         verbose_name = "Рекламная кампания"
         verbose_name_plural = "Рекламные кампании"
 

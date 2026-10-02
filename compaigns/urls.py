@@ -1,5 +1,13 @@
+"""Маршруты"""
+
 from django.urls import path
-from .views import CompaignCreateView, CompaignDeleteView, CompaignDetailView, CompaignListView, CompaignUpdateView
+from .views import (
+    CompaignCreateView,
+    CompaignDeleteView,
+    CompaignDetailView,
+    CompaignListView,
+    CompaignUpdateView
+)
 
 
 urlpatterns = [

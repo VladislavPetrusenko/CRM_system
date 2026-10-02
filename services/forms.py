@@ -1,3 +1,5 @@
+"""Формы приложения"""
+
 from django import forms
 from services.models import Service
 
@@ -7,6 +9,7 @@ class ServiceForm(forms.ModelForm):
 
 
     class Meta:
+        """Настройки формы"""
         model = Service
         fields = ['name', 'description', 'price']
         widgets = {
@@ -14,4 +17,3 @@ class ServiceForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'class': 'form-control'}),
             'price': forms.NumberInput(attrs={'class': 'form-control'})
         }
-        

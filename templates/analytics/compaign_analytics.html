@@ -1,0 +1,28 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<h2 class="fw-bold">Статистика рекламных кампаний</h2>
+<div class="row bg-white px-3 py-3 mx-2 my-5 rounded pb-5 shadow-lg">
+    <div class="col">
+        <ul class="list-group">
+            {% for compaign in compaign_list %}
+            <li class="list-group-item list-group-item-light">
+                <div class="d-flex justify-content-between">
+                    <a href="{% url 'compaign_detail' pk=compaign.pk %}"
+                       class="text-decoration-none link-dark fw-bold">{{ compaign.name }}</a>
+                    <span>Бюджет: {{ compaign.budget }}₽</span>
+                </div>
+                <p class="mb-0 mt-1">
+                    Лидов: {{ compaign.leads_count }} |
+                    Активных клиентов: {{ compaign.clients_count }} |
+                    Доход: {{ compaign.income }}₽ |
+                    Доход/бюджет: {{ compaign.profit|default_if_none:"-" }}
+                </p>
+            </li>
+            {% empty %}
+            <li class="list-group-item list-group-item-light">Кампаний пока нет</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

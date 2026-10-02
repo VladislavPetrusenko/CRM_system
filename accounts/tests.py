@@ -1,3 +1,4 @@
-from django.test import TestCase
+"""Тесты для юзеров"""
+
 
 # Create your tests here.

@@ -1,11 +1,13 @@
+"""Представления приложения клиенты"""
+
 from typing import Any
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
+from leads.models import Lead
 from .forms import ActiveClientCreateForm, ActiveClientForm
 from .models import ActiveClient
-from leads.models import Lead
 
 
 class ActiveClientListView(PermissionRequiredMixin, ListView):
@@ -55,7 +57,10 @@ class ActiveClientCreateView(PermissionRequiredMixin, CreateView):
     def form_valid(self, form):
         """Создаёт контракт и активного клиента, перенаправляет на его страницу."""
         contract = form.save()
-        active_client = ActiveClient.objects.create(lead=form.cleaned_data['lead'], contract=contract)
+        active_client = ActiveClient.objects.create(
+            lead=form.cleaned_data['lead'],
+            contract=contract
+        )
         return redirect(active_client)
 
 

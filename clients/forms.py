@@ -1,7 +1,9 @@
+"""Формы приложения клиенты"""
+
 from django import forms
-from .models import ActiveClient
-from contracts.forms import ContractForm
 from leads.models import Lead
+from contracts.forms import ContractForm
+from .models import ActiveClient
 
 
 class ActiveClientForm(forms.ModelForm):
@@ -9,6 +11,7 @@ class ActiveClientForm(forms.ModelForm):
 
 
     class Meta:
+        """Настройки формы"""
         model = ActiveClient
         fields = ['lead', 'contract']
         widgets = {

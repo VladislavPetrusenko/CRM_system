@@ -1,3 +1,5 @@
+"""Форма контракта"""
+
 from django import forms
 from .models import Contract
 
@@ -7,6 +9,7 @@ class ContractForm(forms.ModelForm):
 
 
     class Meta:
+        """Настройки формы"""
         model = Contract
         fields = ['name', 'service', 'file', 'conclusion_date', 'end_date', 'amount']
         widgets = {
@@ -23,4 +26,3 @@ class ContractForm(forms.ModelForm):
             ),
             'amount': forms.NumberInput(attrs={'class': 'form-control'})
         }
-        

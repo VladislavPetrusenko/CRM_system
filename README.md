@@ -126,6 +126,7 @@ python manage.py createsuperuser
 ### Шаг 8. Загрузка тестовых данных (фикстуры)
 
 ```bash
+python manage.py loaddata fixtures/groups.json
 python manage.py loaddata fixtures/data.json
 ```
 
@@ -161,7 +162,7 @@ python manage.py loaddata fixtures/data.json
 ### Как создать / обновить фикстуру из текущей базы
 
 ```bash
-python manage.py dumpdata services.Service campaigns.Campaign \
+python manage.py dumpdata services.Service compaigns.Compaign \
     leads.Lead contracts.Contract clients.ActiveClient \
     --indent 2 -o fixtures/data.json
 ```
@@ -209,19 +210,6 @@ python manage.py dumpdata services.Service campaigns.Campaign \
 3. В шаблонах элементы интерфейса (кнопки, пункты меню) дополнительно
    скрываются по роли. Это UX-уровень; основной контроль доступа — серверный.
 
-## 📊 Держите в курсе дела
-
-### 🔄 Над чем работаю сейчас
-
-- Этап 12 — Статистика кампаний.
-
-### ⏳ Что планируется
-
-- Этап 12 — страница статистики по рекламным кампаниям.
-- Этап 13 — настройка административной панели.
-- Этап 14 — Pylint, аннотации типов, mypy.
-- Этап 15 — тестирование (Pytest), финальная проверка.
-
 ### Общий план работ и статусы
 
 | № | Этап |   Статус    |
@@ -237,7 +225,6 @@ python manage.py dumpdata services.Service campaigns.Campaign \
 | 9 | CRUD-страницы контрактов |  ✅ готов   |
 | 10 | Страницы активных клиентов | ✅ готов |
 | 11 | Перевод лида в активного клиента |   ✅ готов   |
-| 12 | Статистика кампаний |   🔄 в работе   |
-| 13 | Административная панель |   ⏳ план   |
-| 14 | Качество кода (Pylint, mypy) |   ⏳ план   |
-| 15 | Тестирование и финализация |   ⏳ план   |
+| 12 | Статистика кампаний |   ✅ готов  |
+| 13 | Административная панель |   ✅ готов   |
+| 14 | Качество кода (Pylint, mypy) |   ✅ готов   |

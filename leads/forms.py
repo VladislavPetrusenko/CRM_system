@@ -1,3 +1,5 @@
+"""Форма лидов"""
+
 from django import forms
 from leads.models import Lead
 
@@ -7,6 +9,7 @@ class LeadForm(forms.ModelForm):
 
 
     class Meta:
+        """Настройки формы"""
         model = Lead
         fields = ['full_name', 'phone', 'email', 'compaign']
         widgets = {
@@ -15,4 +18,3 @@ class LeadForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'compaign': forms.Select(attrs={'class': 'form-control'})
         }
-        

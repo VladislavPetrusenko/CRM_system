@@ -1,3 +1,4 @@
-from django.db import models
+"""Модели для юзеров"""
+
 
 # Create your models here.

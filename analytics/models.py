@@ -1,3 +1,3 @@
-from django.db import models
+"""Модели статистики"""
 
 # Create your models here.
